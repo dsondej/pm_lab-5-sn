@@ -1,8 +1,9 @@
+
 #include <Arduino.h>
 #include <LiquidCrystal.h>
 
 #define buttonUp    11
-#define buttonDown  13   
+#define buttonDown  13
 LiquidCrystal lcd(9, 8, 7, 6, 5, 4);
 int menu=1;
 bool psButtonUp = LOW;
@@ -18,7 +19,7 @@ void changeMenu(void){
     if(menu>3){
       menu=1;
     }
-    lcdClear();
+    lcd.clear();
   }
   if(digitalRead(buttonDown) == HIGH && psButtonDown == LOW) {
     psButtonDown = HIGH;
@@ -26,7 +27,7 @@ void changeMenu(void){
     if(menu<1){
       menu=3;
     }
-    lcdClear();
+    lcd.clear();
   }
   psButtonUp = digitalRead(buttonUp);
   psButtonDown = digitalRead(buttonDown);
